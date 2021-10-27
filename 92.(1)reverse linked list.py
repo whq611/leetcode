@@ -1,0 +1,65 @@
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+
+class Solution:
+    def reverseBetween(self, head, left, right):
+        def reverse_linked_list(head):
+            pre = None
+            cur = head
+            while cur:
+                nex = cur.next
+                cur.next = pre
+                pre = cur
+                cur = nex
+        dummy_node = ListNode(-1)
+        dummy_node.next = head
+        pre = dummy_node
+        for _ in range(left-1):
+            pre = pre.next
+        right_node = pre
+        for _ in range(right-left+1):
+            right_node = right_node.next
+        left_node = pre.next
+        curr = right_node.next
+        pre.next = None
+        right_node.next = None
+
+        reverse_linked_list(left_node)
+        pre.next = right_node
+        left_node.next = curr
+        return dummy_node.next
+
+
+def create_linked_list(nums):
+    if len(nums) == 0:
+        return None
+    head = ListNode(nums[0])
+    cur = head
+    for i in range(1, len(nums)):
+        cur.next = ListNode(nums[i])
+        cur = cur.next
+    return head
+
+
+def print_linked_list(list_node):
+    if list_node is None:
+        return
+
+    cur = list_node
+    while cur:
+        print(cur.val, '->', end=' ')
+        cur = cur.next
+    print('null')
+
+
+if __name__ == '__main__':
+    # nums = [1, 2, 3, 4, 5, 6, 7]
+    nums = [1, 2, 3, 4, 5, 6, 7, 8]
+    head = create_linked_list(nums)
+    solution = Solution()
+    result = solution.reverseBetween(head,2,4)
+    print('结果：')
+    print_linked_list(result)
