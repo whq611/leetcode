@@ -1,6 +1,6 @@
 - 👋 Hi, I’m Hanqi Wang
-- 👀 I’m interested in python and c++ programming
-- 🌱 I’m currently learning python and c++
+- 👀 I’m interested in python and java programming
+- 🌱 I’m currently learning python and java
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me linkin: linkedin.com/in/hanqi-wang-958bba203
 - 📫 How to reach me email: hanqiw14@gmail.com
